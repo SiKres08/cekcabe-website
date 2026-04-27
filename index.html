@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CekCabe</title>
+    <!-- <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/logo/favicon.png') }}"> -->
+    <link rel="icon" href="static/assets/logo/favicon.png">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='landing-page.css') }}"> -->
+    <link rel="stylesheet" href="static/landing-page.css">
+    <style>
+        @font-face {
+            font-family: 'poppins-regular';
+            src: url(/static/font/Poppins/Poppins-Regular.ttf);
+        }
+        @font-face {
+            font-family: 'poppins-medium';
+            src: url(/static/font/Poppins/Poppins-Medium.ttf);
+        }
+        @font-face {
+            font-family: 'poppins-semibold';
+            src: url(/static/font/Poppins/Poppins-SemiBold.ttf);
+        }
+        @font-face {
+            font-family: 'poppins-extrabold';
+            src: url(/static/font/Poppins/Poppins-ExtraBold.ttf);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#page">
+            <!-- <img src="{{ url_for('static', filename='assets/logo/cek.cabe-text.png') }}" class="logo"> -->
+            <img src="static/assets/logo/cek.cabe-text.png" class="logo">
+        </a>
+        <div class="burger" id="burger">
+            <!-- <img src="{{ url_for('static', filename='assets/icon/menu.png') }}" alt=""> -->
+            <img src="static/assets/icon/menu.png" alt="">
+        </div>
+        <div class="nav" id="nav">
+            <ul>
+                <li><a href="#page" class="link-text">beranda</a></li>
+                <li><a href="#about" class="link-text">tentang</a></li>
+                <li><a href="#step" class="link-text">langkah penggunaan</a></li>
+                <li><a href="#identifikasi" class="link-text">identifikasi</a></li>
+            </ul>
+        </div>
+        <a href="#download">
+            <button class="btn-download">
+                <span class="icon">
+                    <!-- <img src="{{ url_for('static', filename='assets/icon/arrow-down.svg') }}" width="36pt"> -->
+                    <img src="static/assets/icon/arrow-down.svg" width="36pt">
+                </span>
+                Unduh Sekarang
+            </button>
+        </a>
+    </nav>
+
+    <section class="hero" id="page">
+        <div class="hero-left reveal reveal-left">
+            <h1>cek <br><span>cabe</span></h1>
+            <p>Aplikasi identifikasi penyakit tanaman cabai secara langsung</p>
+            <a href="#identifikasi" class="btn-primary">Coba Identifikasi</a>
+        </div>
+
+        <div class="hero-center reveal reveal-center">
+            <!-- <img src="{{ url_for('static', filename='assets/img/cekcabe mockup.png') }}" class="phone"> -->
+            <!-- <img src="{{ url_for('static', filename='assets/img/cabe.png') }}" class="chili"> -->
+            <img src="static/assets/img/cekcabe mockup.png" class="phone">
+            <img src="static/assets/img/cabe.png" class="chili">
+        </div>
+
+        <div class="hero-right reveal reveal-right">
+            <h2>identifikasi <br><span>mudah</span></h2>
+            <p>Identifikasi langsung di tempat dengan teknologi AI khusus</p>
+        </div>
+    </section>
+
+    <section class="about reveal" id="about">
+        <div class="about-image">
+            <!-- <img src="{{ url_for('static', filename='assets/img/cabai mockup 1.jpg') }}"> -->
+            <img src="static/assets/img/cabai mockup 1.jpg" alt="">
+        </div>
+
+        <div class="about-container">
+            <div class="about-content">
+                <h2><span>apa itu</span><br>cek cabe?</h2>
+                <p>Aplikasi identifikasi penyakit tanaman cabai berbasis AI dengan model Convolutional Neural Network yang dapat mengidentifikasi penyakit tanaman cabai secara langsung hanya dengan gambar.</p>
+            </div>
+
+            <!-- <img src="{{ url_for('static', filename='assets/img/cabe-cabean.png') }}" class="cabe-img"> -->
+            <img src="static/assets/img/cabe-cabean.png" class="cabe-img">
+        </div>
+    </section>
+
+    <section class="why-cause">
+        <!-- <img src="{{ url_for('static', filename='assets/logo/cek.cabe.png') }}" width="100px"> -->
+        <img src="static/assets/logo/cek.cabe.png" width="100px">
+        <h1>kenapa <span style="color:#ED2327;font-family:poppins-extrabold;">cek cabe?</span></h1>
+
+        <div class="cards reveal reveal-center">
+            <div class="card active">
+                <h3>Identifikasi Cepat</h3>
+                <p>Identifikasi penyakit berlangsung cepat karena model Edge-AI</p>
+            </div>
+            <div class="card">
+                <h3>Akurasi Tinggi</h3>
+                <p>Karena model dilatih dengan ribuan gambar dataset</p>
+            </div>
+            <div class="card">
+                <h3>Offline Mode</h3>
+                <p>Identifikasi tetap berjalan tanpa internet</p>
+            </div>
+            <div class="card">
+                <h3>Ramah Pengguna</h3>
+                <p>Desain UI sederhana dan mudah digunakan</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="step" id="step">
+        <div class="container">
+            <div class="heading reveal reveal-left">
+                <h1>3 Langkah <span>Cek Cabe</span></h1>
+                <p>Hanya terdapat 3 langkah simple dalam proses identifikasi tanaman cabai</p>
+            </div>
+
+            <div class="card-wrap">
+                <div class="card1">
+                    <h2>01</h2>
+                    <h3>Pilih Input</h3>
+                    <p>Dapat melalui ambil foto dengan kamera aplikasi atau unggah gambar tanaman cabai dari galeri</p>
+                </div>
+                <!-- <img src="{{ url_for('static', filename='assets/img/SS 1.png') }}" class="hp"> -->
+                <img src="static/assets/img/SS 1.png" class="hp">
+            </div>
+
+            <div class="card-wrap">
+                <div class="card2">
+                    <h2>02</h2>
+                    <h3>Input Gambar</h3>
+                    <p>Dengan menekan tombol shutter kamera aplikasi atau memilih gambar tanaman cabai di galeri internal smartphone</p>
+                </div>
+                <!-- <img src="{{ url_for('static', filename='assets/img/SS 3.png') }}" class="hp"> -->
+                <img src="static/assets/img/SS 3.png" class="hp">
+            </div>
+
+            <div class="card-wrap">
+                <div class="card1">
+                    <h2>03</h2>
+                    <h3>Lihat Hasil</h3>
+                    <p>Tampilan hasil identifikasi penyakit tanaman cabai, beserta informasi mengenai penyakit hasil identifikasi</p>
+                </div>
+                <!-- <img src="{{ url_for('static', filename='assets/img/SS 2.png') }}" class="hp"> -->
+                <img src="static/assets/img/SS 2.png" class="hp">
+            </div>
+        </div>
+    </section>
+    <section class="cta" id="identifikasi">
+        <div class="cta-container">
+            <div class="cta-text">
+                <h1>ingin coba <br><span>cek cabe?</span></h1>
+                <p>
+                    Identifikasi penyakit tanaman cabai secara online
+                    dengan klik tombol di bawah ini.
+                </p>
+                <a href="templates/cekcabe.html" class="btn reveal reveal-left">
+                    CekCabe Online
+                    <!-- <img src="{{ url_for('static', filename='assets/icon/Line arrow-right.png') }}" width="32px"> -->
+                    <img src="static/assets/icon/Line arrow-right.png" width="32px">
+                </a>
+            </div>
+            <div class="cta-image">
+                <!-- <img src="{{ url_for('static', filename='assets/img/SS 3.png') }}" class="hp hp1 reveal reveal-center">
+                <img src="{{ url_for('static', filename='assets/img/SS 1.png') }}" class="hp hp2 reveal reveal-center">
+                <img src="{{ url_for('static', filename='assets/img/SS 2.png') }}" class="hp hp3 reveal reveal-center"> -->
+                <img src="static/assets/img/SS 3.png" class="hp hp1 reveal reveal-center">
+                <img src="static/assets/img/SS 1.png" class="hp hp2 reveal reveal-center">
+                <img src="static/assets/img/SS 2.png" class="hp hp3 reveal reveal-center">
+            </div>
+        </div>
+    </section>
+    <section class="download" id="download">
+        <div class="download-container">
+            <div class="download-text">
+                <h2>Unduh cekcabe</h2>
+                <p class="sub">untuk perangkat mobile (android)</p>
+                <a href="https://drive.usercontent.google.com/download?id=1YIc_r65-eDBhyx7Osbudo8_hKsK5Uqi8&export=download&authuser=0" class="btn-download1">
+                    Unduh APK
+                    <!-- <img src="{{ url_for('static', filename='assets/icon/arrow-down.png') }}" width="36px" class="icon"> -->
+                    <img src="static/assets/icon/arrow-down.png" width="36px" class="icon">
+                </a>
+                <p class="note">*Note: belum tersedia untuk iOS</p>
+            </div>
+            <div class="download-image reveal reveal-right">
+                <!-- <img src="{{ url_for('static', filename='assets/img/tangan.png') }}"> -->
+                <img src="static/assets/img/tangan.png" alt="">
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <!-- <img src="{{ url_for('static', filename='assets/logo/cekcabe-horizontal.png') }}" width="260px"> -->
+                <img src="static/assets/logo/cekcabe-horizontal.png" width="260px">
+                <div class="professional">
+                    Identifikasi Cepat | Inferensi Offline |<br>
+                    AI Based | Convolutional Neural<br>
+                    Network | Mobile App
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <p>Hubungi kami jika tertarik via</p>
+                <div class="email">
+                    <!-- <img src="{{ url_for('static', filename='assets/icon/mail.png') }}" width="32px"> -->
+                    <img src="static/assets/icon/mail.png" width="32px">
+                    <p>kreskres1802@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Follow Us</h3>
+                <p>Ikuti sosial media kami untuk update informasi</p>
+                <div class="social">
+                    <!-- <img src="{{ url_for('static', filename='assets/icon/linkedin.png') }}" width="32px">
+                    <img src="{{ url_for('static', filename='assets/icon/instagram.png') }}" width="32px"> -->
+                    <img src="static/assets/icon/linkedin.png" width="32px">
+                    <img src="static/assets/icon/instagram.png" width="32px">
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Subscribe</h3>
+                <p>Kirim email untuk update informasilainnya</p>
+                <div class="subscribe">
+                    <input type="email" placeholder="E-mail anda">
+                    <button>
+                        <!-- <img src="{{ url_for('static', filename='assets/icon/send.png') }}" width="24px"> -->
+                        <img src="static/assets/icon/send.png" width="24px">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const burger = document.getElementById("burger");
+        const nav = document.getElementById("nav");
+
+        burger.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+
+        const cards = document.querySelectorAll(".card");
+        let index = 0;
+
+        setInterval(() => {
+        cards.forEach(card => card.classList.remove("active"));
+
+        cards[index].classList.add("active");
+
+        index++;
+        if (index >= cards.length) index = 0;
+        }, 1500);
+
+        const reveals = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            } else {
+            entry.target.classList.remove("active");
+            }
+        });
+        }, {
+        threshold: 0.8
+        });
+        reveals.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
