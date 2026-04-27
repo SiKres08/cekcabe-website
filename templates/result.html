@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hasil</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/logo/favicon.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='cekcabe.css') }}">
+</head>
+<body>
+  <div class="container">
+    <a href="/cekcabe" class="btn-back">
+        <img src="{{ url_for('static', filename='assets/icon/Line arrow-right.png') }}" width="24px">
+        Kembali
+      </a>
+    <div class="result-card">
+      <img src="{{ url_for('static', filename=image_path) }}">
+      <p class="small">Hasil Identifikasi:</p>
+      <h2>{{ prediction }}</h2>
+      <p class="accuracy">Keyakinan: {{ accuracy }}%</p>
+      <br>
+      <br>
+      <p class="info">
+          Unduh aplikasi untuk mendapatkan hasil prediksi dengan tingkat akurasi dan keyakinan yang tinggi dengan model AI yang lebih update!
+      </p>
+    </div>
+  </div>
+</body>
+</html>

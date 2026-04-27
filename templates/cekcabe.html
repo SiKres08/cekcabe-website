@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cek Cabe</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/logo/favicon.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='cekcabe.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <a href="/" class="btn-back">
+        <img src="{{ url_for('static', filename='assets/icon/Line arrow-right.png') }}" width="24px">
+        Kembali
+      </a>
+    </div>
+
+    <div class="logo">
+      <img src="{{ url_for('static', filename='assets/logo/cekcabe.png') }}" width="150px">
+    </div>
+    <p class="subtitle">Identifikasi Penyakit</p>
+    <h1>Tanaman Cabai</h1>
+
+    <div class="banner">
+      <img src="{{ url_for('static', filename='assets/img/image 3.png') }}">
+    </div>
+
+    <p class="desc">Identifikasi sekarang!<br>Pilih gambar dari galeri atau ambil foto.</p>
+    
+    <form id="uploadForm" action="/predict" method="post" enctype="multipart/form-data">
+      <label class="btn">
+        <img src="{{ url_for('static', filename='assets/icon/camera.svg') }}" width="24px">
+        Ambil Gambar Langsung
+        <input type="file" id="cameraInput" accept="image/*" capture="environment" hidden>
+      </label>
+      <label class="btn">
+        <img src="{{ url_for('static', filename='assets/icon/upload.svg') }}" width="24px">
+        Unggah Gambar dari Galeri
+        <input type="file" id="fileInput" accept="image/*" hidden>
+      </label>
+    </form>
+
+    <div id="loading">
+      <div class="spinner"></div>
+    </div>
+
+    <script>
+      const loading = document.getElementById("loading");
+
+      function autoSubmit(input) {
+        if (input.files.length === 0) return;
+
+        loading.style.display = "flex";
+
+        const formData = new FormData();
+        formData.append("file", input.files[0]);
+
+        setTimeout(() => {
+          fetch("/predict", {
+            method: "POST",
+            body: formData
+          })
+          .then(res => res.text())
+          .then(html => {
+            document.open();
+            document.write(html);
+            document.close();
+          });
+        }, 10);
+      }
+
+      document.getElementById("cameraInput").addEventListener("change", function() {
+        autoSubmit(this);
+      });
+
+      document.getElementById("fileInput").addEventListener("change", function() {
+        autoSubmit(this);
+      });
+    </script>
+  </div>
+</body>
+</html>
