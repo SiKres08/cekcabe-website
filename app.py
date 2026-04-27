@@ -9,7 +9,7 @@ import time
 
 app = Flask(__name__)
 
-MODEL_PATH = 'mobilenetv3_cabaiv1.keras'
+MODEL_PATH = 'model_cnn.keras'
 model = load_model(MODEL_PATH)
 
 class_names = ['Sehat', 'Antraknosa', 'Virus Kuning', 'Bercak Daun', 'Keriting Daun']
