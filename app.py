@@ -1,29 +1,43 @@
 from flask import Flask, render_template, request
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.applications.mobilenet_v3 import preprocess_input
 import numpy as np
 import os
 import threading
 import time
+from PIL import Image
+import tflite_runtime.interpreter as tflite
 
 app = Flask(__name__)
 
-MODEL_PATH = 'model_cnn.keras'
-model = load_model(MODEL_PATH)
+# Load TFLite model
+MODEL_PATH = 'model.tflite'
+interpreter = tflite.Interpreter(model_path=MODEL_PATH)
+interpreter.allocate_tensors()
+
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details()
 
 class_names = ['Sehat', 'Antraknosa', 'Virus Kuning', 'Bercak Daun', 'Keriting Daun']
 
-# Pastikan folder ada
 os.makedirs('static/uploads', exist_ok=True)
 
-def predict_image(img_path):
-    img = image.load_img(img_path, target_size=(224, 224))
-    img_array = image.img_to_array(img)
-    img_array = preprocess_input(img_array)
-    img_array = np.expand_dims(img_array, axis=0)
+def preprocess(img_path):
+    img = Image.open(img_path).convert("RGB")
+    img = img.resize((224, 224))
+    img = np.array(img).astype("float32")
 
-    preds = model.predict(img_array)
+    img = img / 127.5 - 1.0
+
+    img = np.expand_dims(img, axis=0)
+    return img
+
+def predict_image(img_path):
+    img_array = preprocess(img_path)
+
+    interpreter.set_tensor(input_details[0]['index'], img_array)
+    interpreter.invoke()
+
+    preds = interpreter.get_tensor(output_details[0]['index'])
+
     predicted_class = class_names[np.argmax(preds)]
     accuracy = np.max(preds) * 100
 
@@ -69,6 +83,5 @@ def upload():
                            accuracy=round(accuracy, 2),
                            image_path=image_url)
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+if __name__ == '__main__':
+    app.run(debug=True)
